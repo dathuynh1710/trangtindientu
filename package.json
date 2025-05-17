@@ -1,0 +1,17 @@
+{
+    "name": "trangtin",
+    "version": "1.0.0",
+    "description": "Trang tin dien tu NodeJS + MongoDB Atlas",
+    "main": "index.js",
+    "scripts": {
+        "test": "nodemon index.js"
+    },
+    "author": "Huynh Thanh Dat",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "ejs": "^3.1.10",
+        "express": "^5.1.0",
+        "mongoose": "^8.15.0"
+    }
+}
