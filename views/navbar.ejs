@@ -15,12 +15,14 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/tinmoi"><i class="bi bi-compass"></i> Tin mới nhất</a>
                 </li>
+                <% if(typeof session === "undefined" || !session.MaNguoiDung) { %>
                 <li class="nav-item">
                     <a class="nav-link" href="/dangky"><i class="bi bi-person-plus-fill"></i> Đăng ký</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/dangnhap"><i class="bi bi-box-arrow-in-right"></i> Đăng nhập</a>
                 </li>
+                <% } else { %> <% if(session.QuyenHan == "admin") { %>
                 <li class="nav-item dropdown">
                     <a
                         class="nav-link dropdown-toggle"
@@ -46,6 +48,7 @@
                         </li>
                     </ul>
                 </li>
+                <% } %>
                 <li class="nav-item dropdown">
                     <a
                         class="nav-link dropdown-toggle"
@@ -54,7 +57,7 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
-                        <i class="bi bi-person"></i> Họ và tên
+                        <i class="bi bi-person"></i> <%= session.HoVaTen %>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
@@ -78,6 +81,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/dangxuat"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a>
                 </li>
+                <% } %>
             </ul>
             <form action="/timkiem" class="d-flex" role="search">
                 <input class="form-control me-2" type="search" name="tukhoa" placeholder="Bạn muốn tìm gì?" />
