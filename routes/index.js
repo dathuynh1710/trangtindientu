@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var ChuDe = require("../models/chude");
 var BaiViet = require("../models/baiviet");
-var firstImage = require("../modules/firstImage");
+var firstImage = require("../modules/firstimage");
 // GET: Trang chủ
 router.get("/", async (req, res) => {
     // Lay chuyen muc hien thi vao menu
