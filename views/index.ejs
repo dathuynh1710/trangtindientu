@@ -9,19 +9,60 @@
             rel="stylesheet"
         />
         <title><%= title %> - Trang tin điện tử</title>
+        <link href="http://127.0.0.1:3000/css/app.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="container">
-            <!-- Menu ngang -->
-            <%- include('navbar') %>
-            <!-- Nội dung chính -->
-            <div class="card mt-3">
-                <div class="card-header"><%= title %></div>
-                <div class="card-body"><p class="card-text">Trang chủ đang cập nhật.</p></div>
+        <!-- Header -->
+        <%- include('header') %>
+        <main class="main pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                            <% if(typeof baiviet !== "undefined") { var chunkSize = 4; for(var i = 0; i <
+                            baiviet.length; i += chunkSize) { var chunk = baiviet.slice(i, i + chunkSize); %>
+                            <div class="col-md-4">
+                                <% chunk.forEach(bv => { %>
+                                <article class="card mb-4">
+                                    <header class="card-header">
+                                        <div class="card-meta">
+                                            <a href="#"><time class="timeago" datetime="<%= bv.NgayDang %>"></time></a>
+                                            thuộc
+                                            <a href="/baiviet/chude/<%= bv.ChuDe._id %>"><%= bv.ChuDe.TenChuDe %></a>
+                                        </div>
+                                        <a href="/baiviet/chitiet/<%= bv._id %>">
+                                            <h4 class="card-title"><%= bv.TieuDe %></h4>
+                                        </a>
+                                    </header>
+                                    <a href="/baiviet/chitiet/<%= bv._id %>">
+                                        <img class="card-img" src="<%- firstImage(bv.NoiDung) %>" alt="" />
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="card-text"><%= bv.TomTat %></p>
+                                    </div>
+                                </article>
+                                <% }); %>
+                            </div>
+                            <% } } %>
+                        </div>
+                        <nav>
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Về trước</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Về sau</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-3 ms-auto"><%- include('sidebar') %></div>
+                </div>
             </div>
-            <!-- Footer -->
-            <%- include('footer') %>
-        </div>
-        <%- include('javascript') %>
+        </main>
+        <%- include('footer-2') %> <%- include('javascript') %>
     </body>
 </html>

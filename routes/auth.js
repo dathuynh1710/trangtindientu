@@ -70,4 +70,10 @@ router.get("/dangxuat", async (req, res) => {
         res.redirect("/error");
     }
 });
+
+router.get("/admin", async (req, res) => {
+    res.render("admin", {
+        title: "Trang quản trị",
+    });
+});
 module.exports = router;

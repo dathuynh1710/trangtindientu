@@ -21,13 +21,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/", authRouter);
-
-app.use("/chude", chudeRouter);
-app.use("/taikhoan", taikhoanRouter);
-app.use("/baiviet", baivietRouter);
-
 app.use(
     session({
         name: "iNews", // Tên session (tự chọn)
@@ -56,11 +49,17 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/", (req, res) => {
-    res.render("index", {
-        title: "Trang tin",
-    });
-});
+app.use("/", indexRouter);
+app.use("/", authRouter);
+app.use("/chude", chudeRouter);
+app.use("/taikhoan", taikhoanRouter);
+app.use("/baiviet", baivietRouter);
+
+// app.get("/", (req, res) => {
+//     res.render("index", {
+//         title: "Trang tin",
+//     });
+// });
 
 app.listen(3000, () => {
     console.log("Server listening on port 3000");
