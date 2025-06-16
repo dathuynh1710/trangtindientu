@@ -11,18 +11,14 @@ Chào mừng đến với **Trang Tin Điện Tử**, một dự án web đượ
 -   Quản lý **tài khoản**: đăng ký, đăng nhập, phân quyền người dùng
 -   Tìm kiếm bài viết theo từ khóa hoặc chủ đề
 
+---
+
 ## Công Nghệ Sử Dụng
 
 -   **Node.js** – Nền tảng backend
 -   **Express.js** – Framework tạo API nhanh gọn
 -   **MongoDB Atlas** – Cơ sở dữ liệu NoSQL đám mây
 -   **Render** – Nền tảng cloud để triển khai ứng dụng Node.js
-
----
-
-## Hình Ảnh Minh Họa
-
-![Ảnh minh họa](image.png)
 
 ---
 
